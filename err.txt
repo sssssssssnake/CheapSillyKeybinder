@@ -1,0 +1,50 @@
+MethodInvocationException: C:\Users\samue\Documents\Arduino\projs\testSirl\runToFile.ps1:35
+Line |
+  35 |  $line = $port.ReadLine()
+     |  ~~~~~~~~~~~~~~~~~~~~~~~~
+     | Exception calling "ReadLine" with "0" argument(s): "The I/O operation has been aborted because of either a thread exit or an application request."
+MethodInvocationException: C:\Users\samue\Documents\Arduino\projs\testSirl\runToFile.ps1:45
+Line |
+  45 |      $line = $port.ReadLine()
+     |      ~~~~~~~~~~~~~~~~~~~~~~~~
+     | Exception calling "ReadLine" with "0" argument(s): "The I/O operation has been aborted because of either a thread exit or an application request."
+MethodInvocationException: C:\Users\samue\Documents\Arduino\projs\testSirl\runToFile.ps1:45
+Line |
+  45 |      $line = $port.ReadLine()
+     |      ~~~~~~~~~~~~~~~~~~~~~~~~
+     | Exception calling "ReadLine" with "0" argument(s): "The I/O operation has been aborted because of either a thread exit or an application request."
+MethodInvocationException: C:\Users\samue\Documents\Arduino\projs\testSirl\runToFile.ps1:45
+Line |
+  45 |      $line = $port.ReadLine()
+     |      ~~~~~~~~~~~~~~~~~~~~~~~~
+     | Exception calling "ReadLine" with "0" argument(s): "The I/O operation has been aborted because of either a thread exit or an application request."
+MethodInvocationException: C:\Users\samue\Documents\Arduino\projs\testSirl\runToFile.ps1:45
+Line |
+  45 |      $line = $port.ReadLine()
+     |      ~~~~~~~~~~~~~~~~~~~~~~~~
+     | Exception calling "ReadLine" with "0" argument(s): "The I/O operation has been aborted because of either a thread exit or an application request."
+MethodInvocationException: C:\Users\samue\Documents\Arduino\projs\testSirl\runToFile.ps1:45
+Line |
+  45 |      $line = $port.ReadLine()
+     |      ~~~~~~~~~~~~~~~~~~~~~~~~
+     | Exception calling "ReadLine" with "0" argument(s): "The I/O operation has been aborted because of either a thread exit or an application request."
+MethodInvocationException: C:\Users\samue\Documents\Arduino\projs\testSirl\runToFile.ps1:45
+Line |
+  45 |      $line = $port.ReadLine()
+     |      ~~~~~~~~~~~~~~~~~~~~~~~~
+     | Exception calling "ReadLine" with "0" argument(s): "The I/O operation has been aborted because of either a thread exit or an application request."
+MethodInvocationException: C:\Users\samue\Documents\Arduino\projs\testSirl\runToFile.ps1:45
+Line |
+  45 |      $line = $port.ReadLine()
+     |      ~~~~~~~~~~~~~~~~~~~~~~~~
+     | Exception calling "ReadLine" with "0" argument(s): "The I/O operation has been aborted because of either a thread exit or an application request."
+MethodInvocationException: C:\Users\samue\Documents\Arduino\projs\testSirl\runToFile.ps1:45
+Line |
+  45 |      $line = $port.ReadLine()
+     |      ~~~~~~~~~~~~~~~~~~~~~~~~
+     | Exception calling "ReadLine" with "0" argument(s): "The I/O operation has been aborted because of either a thread exit or an application request."
+MethodInvocationException: C:\Users\samue\Documents\Arduino\projs\testSirl\runToFile.ps1:45
+Line |
+  45 |      $line = $port.ReadLine()
+     |      ~~~~~~~~~~~~~~~~~~~~~~~~
+     | Exception calling "ReadLine" with "0" argument(s): "The I/O operation has been aborted because of either a thread exit or an application request."

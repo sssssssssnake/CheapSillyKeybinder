@@ -1,0 +1,25 @@
+void setup() {
+  // Initialize serial communication at a baud rate of 9600
+  Serial.begin(115200);
+  Serial.setTimeout(100);
+}
+int n =0;
+
+void loop() {
+  // Check if there's any data available to read from the serial buffer
+  if (Serial.available() > 0) {
+    // Read a single character from the serial port
+    String incomingByte = Serial.readStringUntil('\n');
+    if (incomingByte == "R") {
+      n = 0;
+    }
+    
+    // Print the received character back to the Serial Monitor
+    Serial.print("Received");
+    Serial.print(n);
+    Serial.print(": ");
+
+    Serial.println(incomingByte);
+    n = n + 1;
+  }
+}
