@@ -84,7 +84,7 @@ if responsable == nil then
     -- clear the console
     -- os.execute("cls")
     debugLog("got nil response")
-
+    lastResponse = "NOCHANGE"
     goto start    
 end
 
