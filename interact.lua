@@ -84,7 +84,7 @@ if responsable == nil then
     -- clear the console
     -- os.execute("cls")
     debugLog("got nil response")
-    lastResponse = "NOCHANGE"
+    lastResponse = "nil"
     goto start    
 end
 
@@ -120,15 +120,15 @@ end
 -- If the response is "NOCHANGE", print a message and go back to the start
 if responsable == "NOCHANGE" then
     print("No change")
-    os.execute("cls")
+    os.execute("pwsh.exe ./keybinds.ps1" .. " NOCHANGE as this is the way, idk if there is anything else")
     debugLog("No change")
     lastResponse = "NOCHANGE"
     goto start
 end
 
--- If the response is "GREEN", ping spotify to play "All Star" by Smash Mouth
+-- If the response is "GREEN", ping spotify to play "Never Been Better" by half•alive
 if responsable == "GREEN" then
-    print("Playing All Star by Smash Mouth")
+    print("Playing Never Been Better by half•alive")
     os.execute("taskkill /im spotify.exe")
     os.execute("start spotify:track:0Roz3ERK1OvRrqSxpt201d")
     os.execute("cls")
