@@ -1,5 +1,3 @@
-
-
 local function pingPort(message)
     print("Pinging port with message: " .. message)
     
@@ -58,25 +56,89 @@ function splitString(inputstr, sep)
     return t
 end
 
+
+DebugFile = io.open(".\\debugLua.txt", "a")
+local isDebugOpen = true
+local function debugLog(message)
+    if not isDebugOpen then
+        DebugFile = io.open(".\\debugLua.txt", "a")
+        isDebugOpen = true
+    end
+    DebugFile:write(message)
+    DebugFile:write("\n")
+    DebugFile:close()
+    isDebugOpen = false
+end
+local lastResponse = nil
 ::start::
 
 -- Call the interact function and store its return value
 local responsable = interact()
+print("called interact")
 
+print(responsable)
+
+-- If the response is nil, print an error message and go back to the start
 if responsable == nil then
     print("No response from port")
     -- clear the console
-    os.execute("cls")
+    -- os.execute("cls")
+    debugLog("got nil response")
+
     goto start    
 end
+
 -- remove any leading or trailing whitespace
 responsable = responsable:gsub("^%s*(.-)%s*$", "%1")
+
+debugLog("Response: " .. responsable)
+
+
+-- If the response is the same as the last response, print an error message and go back to the start
+if responsable == lastResponse then
+    print("Same response as last time")
+    debugLog("Same response as last time")
+    -- clear the console
+    os.execute("cls")
+    goto start
+end
+
+
 print("KEYWORD: " .. responsable)
 
 
 
-if responsable == "PURPLE" then  -- Note that we compare with "NOCHANGE" instead of "PURPLE\n"
+if responsable == "PURPLE" then
     print("Opening Rick Astley video")
     os.execute("start https://www.youtube.com/watch?v=dQw4w9WgXcQ")
+    os.execute("cls")
+    debugLog("Rickrolled")
+    lastResponse = "PURPLE"
+    goto start
 end
-print("\"" .. "test" .. "\"")
+
+-- If the response is "NOCHANGE", print a message and go back to the start
+if responsable == "NOCHANGE" then
+    print("No change")
+    os.execute("cls")
+    debugLog("No change")
+    lastResponse = "NOCHANGE"
+    goto start
+end
+
+-- If the response is "GREEN", ping spotify to play "All Star" by Smash Mouth
+if responsable == "GREEN" then
+    print("Playing All Star by Smash Mouth")
+    os.execute("taskkill /im spotify.exe")
+    os.execute("start spotify:track:0Roz3ERK1OvRrqSxpt201d")
+    os.execute("cls")
+    debugLog("Playing All Star")
+    lastResponse = "GREEN"
+    goto start
+end
+
+if responsable == "BLUE" then
+    -- mute discord
+    print("Muting Discord")
+    
+end

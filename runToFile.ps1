@@ -45,7 +45,7 @@ while ($dataCounter -lt 10){
     $line = $port.ReadLine()
     Write-Host $line #send read data out for the remainder of the buffer
     $responses += $line
-    wait-event -timeout .5
+    wait-event -timeout .05
     $dataCounter++
     echo "Data counter: $dataCounter"
 }

@@ -47,8 +47,10 @@ void printTouchToSerial(int touchX, int touchY, int touchZ) {
 
     if (touchX <50 && touchX > 10 && touchY <50 && touchY > 10) {
       Serial.println("PURPLE");
+    } else if (touchX <140 && touchX > 100 && touchY <50 && touchY > 10) {
+      Serial.println("GREEN");
     } else {
-        Serial.println("NOCHANGE");
+      Serial.println("NOCHANGE");
     }
     n = n + 1;
   }
@@ -75,17 +77,25 @@ void printTouchToDisplay(int touchX, int touchY, int touchZ) {
   tempText = "Pressure = " + String(touchZ);
   tft.drawCentreString(tempText, centerX, textY, FONT_SIZE);
 
+  // Draw a rectangle from (10, 10) to (50, 50)
   tft.drawFastHLine(10, 10, 40, 0x677777);
   tft.drawFastHLine(10, 50, 40, 0x677777);
   tft.drawFastVLine(10, 10, 40, 0x677777);
   tft.drawFastVLine(50, 10, 40, 0x677777);
+
+  // Draw a rectangle from (100, 10) to (140, 50) with a different color (RBG) whyyyyy?
+  tft.drawFastHLine(100, 10, 40, 0x8888ff);
+  tft.drawFastHLine(100, 50, 40, 0x8888ff);
+  tft.drawFastVLine(100, 10, 40, 0x8888ff);
+  tft.drawFastVLine(140, 10, 40, 0x8888ff);
+  
 
 
 }
 
 void setup() {
   Serial.begin(115200);
-  Serial.setTimeout(100);
+  Serial.setTimeout(50);
 
   // Start the SPI for the touchscreen and init the touchscreen
   touchscreenSPI.begin(XPT2046_CLK, XPT2046_MISO, XPT2046_MOSI, XPT2046_CS);
