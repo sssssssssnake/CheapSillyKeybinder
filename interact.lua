@@ -1,7 +1,7 @@
 local function pingPort(message)
     print("Pinging port with message: " .. message)
     
-    local comPort = "COM3"
+    local comPort = "COM4"
     local baud = "115200"
     local dataToWrite = message
 
@@ -120,7 +120,7 @@ end
 -- If the response is "NOCHANGE", print a message and go back to the start
 if responsable == "NOCHANGE" then
     print("No change")
-    os.execute("pwsh.exe ./keybinds.ps1" .. " NOCHANGE as this is the way, idk if there is anything else")
+    os.execute("pwsh.exe ./keybinds.ps1" .. " MESSAGE: as this is the way, idk if there is anything else")
     debugLog("No change")
     lastResponse = "NOCHANGE"
     goto start
