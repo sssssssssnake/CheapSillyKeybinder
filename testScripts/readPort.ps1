@@ -1,19 +1,8 @@
-$nargs = $args.Count #args is the list of input arguments
-$comPortName=$args[0] #This is the com port. It has zero spaces
-$baud = $args[1] #this is the numberical baud rate
-#the remainder of the arguments are processed below
-echo "starting script"
+$port= new-Object System.IO.Ports.SerialPort COM4,115200,None,8,one
+$port.Open()
 
-
-
-#Combine argument 2,3,...,n with a space because of command prompt shortfalls to pass arguments with spaces
-$dataToWrite = ""
-For ($i=2; $i -le $nargs ; $i++) {
-    $dataToWrite = "$($dataToWrite) $($args[$i])"
-}
-
-#$port= new-Object System.IO.Ports.SerialPort COM3,9600,None,8,one
-$port= new-Object System.IO.Ports.SerialPort $comPortName,$baud,None,8,one
+echo "checking port"
+echo $port.IsOpen
 
 #open port if it's not yet open
 IF ($port.IsOpen) {
@@ -25,16 +14,25 @@ IF ($port.IsOpen) {
     $port.Open()
 }
 
-$port.ReadTimeout = 50
-
+$dataToWrite = "Goodbye Cruel World"
 #write the data
 echo "Writing data: $dataToWrite"
 $port.WriteLine($dataToWrite)
 
+$port.ReadTimeout = 50
+
+
+wait-event -timeout .05
+
 #wait for a response (must end in newline). This removes the need to have a hard coded delay
 echo "Waiting for response"
 $line = $port.ReadLine()
-Write-Host $line #send read data out
+echo $line >> line.txt #send read data out
+
+
+if ($line -eq "") {
+  echo "Blah, bad data"
+}
 echo "Response received"
 $responses = @(11)
 
@@ -44,23 +42,19 @@ $dataCounter = 0
 while ($dataCounter -lt 10){
     $dataReturned = 1
     $line = $port.ReadLine()
-    Write-Host $line #send read data out for the remainder of the buffer
+    echo $line #send read data out for the remainder of the buffer
     $responses += $line
-    wait-event -timeout .05
+    wait-event -timeout .1
     $dataCounter++
     echo "Data counter: $dataCounter"
 }
 
 $port.Close()
+$port.Dispose()
 echo "Port closed"
-rm ./responses.txt
 
-echo "removed files"
 $writecounter = 0
 while ($writecounter -lt 11){
     $writecounter++
     echo $responses[$writecounter] >> responses.txt
 }
-echo $responses.count
-
-#IF ($dataReturned -eq 0) {'PS_NO_BYTES_TO_READ'}

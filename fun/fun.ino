@@ -46,11 +46,11 @@ void printTouchToSerial(int touchX, int touchY, int touchZ) {
     Serial.print(": ");
 
     if (touchX <50 && touchX > 10 && touchY <50 && touchY > 10) {
-      Serial.println("PURPLE");
+      Serial.print("PURPLE\n");
     } else if (touchX <140 && touchX > 100 && touchY <50 && touchY > 10) {
-      Serial.println("GREEN");
+      Serial.print("GREEN\n");
     } else {
-      Serial.println("NOCHANGE");
+      Serial.print("NOCHANGE\n");
     }
     n = n + 1;
   }
